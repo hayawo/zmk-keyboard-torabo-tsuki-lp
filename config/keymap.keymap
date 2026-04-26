@@ -21,10 +21,10 @@
         layer_0 {
             bindings = <
 &none             &none         &none    &none      &none         &none                                               &none      &none  &none  &none       &none            &none
-&kp TAB           &kp Q         &kp L    &kp U      &kp COMMA     &kp PERIOD                                          &kp F      &kp W  &kp R  &kp Y       &kp P            &kp HOME
+&kp ESCAPE        &kp Q         &kp L    &kp U      &kp COMMA     &kp PERIOD                                          &kp F      &kp W  &kp R  &kp Y       &kp P            &kp HOME
 &kp LEFT_CONTROL  &kp E         &kp I    &kp A      &kp O         &kp MINUS      &none              &none             &kp K      &kp T  &kp N  &kp S       &kp H            &lt 2 END
 &kp LSHFT         &kp Z         &kp X    &kp C      &kp V         &kp SEMICOLON  &lt 2 PRINTSCREEN  &lt 2 SCROLLLOCK  &kp G      &kp D  &kp M  &kp J       &kp B            &lt 3 GRAVE
-&kp LCTRL         &kp LEFT_ALT  &kp SQT  &kp SLASH  &kp LEFT_WIN  &kp SPACE      &lt 1 LA(GRAVE)    &kp BACKSPACE     &kp ENTER  &none  &none  &kp C_MENU  &kp RIGHT_SHIFT  &kp EQUAL
+&kp LA(GRAVE)     &kp LEFT_ALT  &kp SQT  &kp SLASH  &kp LEFT_WIN  &kp SPACE      &lt 1 TAB          &kp BACKSPACE     &kp ENTER  &none  &none  &kp C_MENU  &kp RIGHT_SHIFT  &kp EQUAL
             >;
         };
 
