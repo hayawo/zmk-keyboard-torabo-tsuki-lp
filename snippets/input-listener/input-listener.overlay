@@ -13,13 +13,13 @@
 };
 
 / {
-    /* Layer 3専用：スクロールとして動作する設定 */
+    /* Layer 3専用：スクロールとして動作するリスナー */
     pointing_scroll_listener: pointing_scroll_listener {
         compatible = "zmk,input-listener";
         device = <&pointing_device>;
         layers = <3>;
         input-processors = 
-            <&zip_xy_scaler 1 2>, // スクロールの感度調整
+            <&zip_xy_scaler 1 2>, 
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
             <&zip_xy_to_scroll_mapper>;
     };
