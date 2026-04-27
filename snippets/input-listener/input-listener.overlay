@@ -4,12 +4,6 @@
 &pointing_listener {
     status = "okay";
     device = <&pointing_device>;
-    
-    /* 通常移動：Layer 0, 1, 2 で有効 */
-    layers = <0 1 2>;
-    input-processors = 
-        <&zip_xy_scaler 1 2>, // 速度を1/2に減速
-        <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
 };
 
 / {
