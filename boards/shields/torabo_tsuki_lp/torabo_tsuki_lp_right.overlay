@@ -2,28 +2,12 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 
-/* 通常のカーソル移動のリスナー */
+/* 右側共通：トラックボールの入力方向を物理的な配置に合わせて反転させる設定 */
 &pointing_listener {
-    layers = <0 1 2>;
-    input-processors = 
-        <&zip_xy_scaler 1 2>, // ここに追加（例：1/2の速度に減速）
-        <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
 };
 
-/ {
-    /* 前回の回答で追加したスクロール用リスナー */
-    pointing_scroll_listener: pointing_scroll_listener {
-        compatible = "zmk,input-listener";
-        device = <&pointing_device>;
-        layers = <3>;
-        input-processors = 
-            <&zip_xy_scaler 1 3>, // スクロールの感度も個別に調整可能（例：1/3）
-            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
-            <&zip_xy_to_scroll_mapper>;
-    };
-};
-
-/* オフセット設定（既存のまま） */
+/* 右側用のマトリックス・オフセット設定（既存のまま） */
 &size_s_transform { col-offset = <7>; };
 &size_m_transform { col-offset = <7>; };
 &size_l_transform { col-offset = <7>; };
