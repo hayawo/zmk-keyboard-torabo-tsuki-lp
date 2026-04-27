@@ -3,29 +3,22 @@
 #include <dt-bindings/zmk/input_transform.h>
 
 &pointing_listener {
-    /* * 親ノード（ここ）には layers は書けません。
-     * 代わりに、子ノードを作ってその中でレイヤーを指定します。
-     */
-    
-    // 通常移動（Layer 0, 1, 2）の設定
-    move {
-        layers = <0 1 2>;
-        input-processors = 
-            <&zip_xy_scaler 1 2>, // 速度調整（1/2）
-            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
-    };
+    /* ベース設定：通常のカーソル移動の速度を 1/2 にし、反転を適用 */
+    input-processors = 
+        <&zip_xy_scaler 1 2>, 
+        <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
 
-    // スクロールモード（Layer 3）の設定
-    scroll {
+    /* Layer 3 の時だけ設定を上書き（スクロールモード） */
+    scroll_mode {
         layers = <3>;
         input-processors = 
-            <&zip_xy_scaler 1 2>, // スクロール速度調整
-            <&zip_xy_to_scroll_mapper>, // スクロールに変換
+            <&zip_xy_scaler 1 2>, // スクロール感度も 1/2
+            <&zip_xy_to_scroll_mapper>, // 移動をスクロールに変換
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
     };
 };
 
-/* オフセット設定（既存のまま） */
+/* キーマトリックス・オフセット（既存のまま） */
 &size_s_transform { col-offset = <7>; };
 &size_m_transform { col-offset = <7>; };
 &size_l_transform { col-offset = <7>; };
